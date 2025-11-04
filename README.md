@@ -1,16 +1,81 @@
-# wallpaper_app
+# 🖼️ Wallpaper Desktop App (Flutter)
 
-A new Flutter project.
+A sleek Flutter desktop UI concept for a Wallpaper App — built to demonstrate elegant, modern interface design for desktop environments.  
+This project focuses primarily on UI/UX design rather than backend functionality.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📦 Download & Demo
 
-A few resources to get you started if this is your first Flutter project:
+[Download Windows Executable (.exe)]: https://drive.google.com/uc?export=download&id=1VUhcwSObap__U4_b-GbR3-RK8OVHudwa
+[Google Drive View App Zip Folder]: https://drive.google.com/file/d/1VUhcwSObap__U4_b-GbR3-RK8OVHudwa/view?usp=sharing 
+[Watch Demo Video]: https://drive.google.com/file/d/10z7QMfWKobds-5Yj3N8oEB4oX0VWbIIu/view?usp=sharing
+[View on GitHub]: https://github.com/Veektorrh/wallpaperApp.git
+[Figma File Link]: https://www.figma.com/design/WnHFPfZ7uW2vxy4sHqtb12/MOBILE-WALLPAPER-SELECTOR?node-id=0-1&p=f&t=2uDO3enoMFIThi2n-0
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ✨ Features
+
+-  Clean and minimal interface inspired by modern wallpaper dashboards
+-  Responsive layout that adapts to different desktop screen sizes
+-  Wallpaper grid and preview section
+-  Blur and glassmorphism UI effects
+- ️ Right-side settings panel with smooth animation
+-  Figma-based spacing, padding, and typography scaling
+
+---
+
+## 🧠 Purpose
+
+This project serves as a UI concept demo — ideal for:
+- Practicing desktop UI design translation from Figma
+- Exploring Flutter’s layout widgets (`Stack`, `GridView`, `BackdropFilter`, etc.)
+- Building visually appealing UI for portfolios or internships
+
+---
+
+## 🛠️ Built With
+
+- Flutter 
+- Dart
+- Material Design 3
+- Google Fonts (Poppins)
+- Custom animations and transitions
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK installed (run `flutter doctor` to confirm setup)
+- Desktop support enabled (`flutter config --enable-windows-desktop`)
+
+### Run Locally
+```bash
+- git clone https://github.com/Veektorrh/wallpaper_desktop_app.git
+- cd wallpaper_desktop_app
+- flutter pub get
+- flutter run -d windows 
+```
+
+---
+
+### Or Run the .exe File
+
+- Download and run the prebuilt app here: https://drive.google.com/uc?export=download&id=1VUhcwSObap__U4_b-GbR3-RK8OVHudwa
+
+---
+
+### 💬 Author
+
+- Victor @Veektorrh
+- GitHub: https://github.com/Veektorrh
+
+---
+
+### ⭐ If you like this project, please give it a star on GitHub: https://github.com/Veektorrh/wallpaperApp.git
+
+
+
+
