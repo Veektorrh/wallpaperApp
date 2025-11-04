@@ -221,7 +221,7 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                             BorderRadius.circular(
-                                                (16)),
+                                                (SizeConfig.sp(16))),
                                             // border: Border.all(color: Colors.red, width: 5),
                                             image: DecorationImage(
                                               image: AssetImage(
@@ -235,6 +235,14 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                           ),
                                           child: Stack(
                                             children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                    BorderRadius.circular(
+                                                        (SizeConfig.sp(16))),
+                                                  color: Color(0xFF000000).withOpacity(0.3),
+                                                ),
+                                              ),
                                               Align(
                                                     alignment: Alignment(0.8, -0.8),
                                                     child: Container(
@@ -474,6 +482,35 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
+                                              child: Stack(
+                                                children: [
+                                                  Align(
+                                                    alignment: Alignment(-0.8, -0.8),
+                                                    child: Container(
+                                                      height: SizeConfig.h(30),
+                                                      width: SizeConfig.w(30),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                          SizeConfig.sp(30),
+                                                        ),
+                                                        color: Stylings.priWhite
+                                                            .withOpacity(0.2),
+                                                        border: Border.all(
+                                                          color:
+                                                          Stylings.priWhite,
+                                                          width: 0.5,
+                                                        ),
+                                                      ),
+                                                      child: Center(
+                                                        child: Icon(
+                                                          Icons.favorite_border, size: SizeConfig.sp(18),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                             SizedBox(width: 20),
                                             Container(
@@ -481,7 +518,7 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                               child: Column(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
-                                                        .center,
+                                                        .spaceEvenly,
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
@@ -490,62 +527,45 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                                         as List<
                                                           Map<String, String>
                                                         >)[index]['title']!),
-                                                    style: Stylings.subHeader,
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppings',
+                                                      fontSize: SizeConfig.sp(30),
+                                                      fontWeight: FontWeight.w500,
+                                                      color: Stylings.priBlack,
+                                                    ),
                                                   ),
+
+
                                                   Container(
                                                     height: SizeConfig.h(34),
                                                     width: SizeConfig.w(110),
                                                     decoration: BoxDecoration(
                                                       color: Color(
-                                                        0xFF8787871A,
+                                                        0xFF878787,
                                                       ).withOpacity(0.1),
                                                       borderRadius:
-                                                          BorderRadius.circular(
-                                                            30,
-                                                          ),
+                                                      BorderRadius.circular(
+                                                        SizeConfig.sp(30),
+                                                      ),
                                                       border:
-                                                          Border.fromBorderSide(
-                                                            BorderSide(
-                                                              color: Stylings
-                                                                  .priBlack
-                                                                  .withOpacity(
-                                                                    0.5,
-                                                                  ),
-                                                              width: 1,
-                                                              style:
-                                                                  BorderStyle
-                                                                      .solid,
-                                                            ),
+                                                      Border.fromBorderSide(
+                                                        BorderSide(
+                                                          color: Stylings
+                                                              .priLight
+                                                              .withOpacity(
+                                                            0.5,
                                                           ),
+                                                          width: 0.5,
+
+                                                        ),
+                                                      ),
                                                     ),
                                                     child: Center(
                                                       child: Text(
                                                         wallpapers[0]['name']
-                                                            as String,
+                                                        as String,
                                                         style:
-                                                            Stylings.navSmall,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    height: SizeConfig.h(40),
-                                                    width: SizeConfig.w(40),
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                            30,
-                                                          ),
-                                                      color: Stylings.priWhite
-                                                          .withOpacity(0.2),
-                                                      border: Border.all(
-                                                        color:
-                                                            Stylings.priWhite,
-                                                        width: 0.5,
-                                                      ),
-                                                    ),
-                                                    child: Center(
-                                                      child: Icon(
-                                                        Icons.favorite_border,
+                                                        Stylings.navSmall,
                                                       ),
                                                     ),
                                                   ),

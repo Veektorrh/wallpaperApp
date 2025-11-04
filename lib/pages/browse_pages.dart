@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wallpaper_app/pages/active_wallpaper.dart';
 import 'package:wallpaper_app/pages/settings.dart';
+import 'package:wallpaper_app/pages/wallpaper_setup.dart';
 
 import '../global_variables.dart';
 import '../reusables/mybutton.dart';
@@ -137,7 +138,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
                         child: Column(
@@ -157,11 +158,12 @@ class _BrowsePageState extends State<BrowsePage> {
                                 ),
                               ),
                             ),
+                            // SizedBox(height: SizeConfig.h(8)),
 
                             Align(
                               alignment: Alignment(-1, -1),
                               child: Text(
-                                'Explore our curated collections of stunning wallpapers', style: Stylings.subHeader,
+                                'Explore our curated collections of stunning wallpapers', style: Stylings.subHeader.copyWith(color: Color(0xFF575757)),
 
                               ),
                             ),
@@ -180,7 +182,7 @@ class _BrowsePageState extends State<BrowsePage> {
                           // isGridView ? ImageIcon(AssetImage('assets/images/listicon.png')) : Icons.grid_view_outlined
                             // child: isGridView ? ImageIcon (Image: AssetImage('assets/images/listicon')) : Icons.grid_view_outlined, size: 27,color: Stylings.selected,))
 
-                      ))
+                                                ))
                     ],
                   ),
                   SizedBox(height: SizeConfig.h(50),),
@@ -219,115 +221,120 @@ class _BrowsePageState extends State<BrowsePage> {
                                 final wallpaper = wallpapers[index];
                                 return Padding(
                                   padding: SizeConfig.padding(0, 20),
-                                  child: Container(
-                                    height: SizeConfig.h(225.12),
-                                    width: SizeConfig.w(1346),
-                                    // padding: EdgeInsets.symmetric(vertical: 20),
-                                    decoration: BoxDecoration(
-                                      border: Border(
-                                        bottom: BorderSide(
-                                          color: Stylings.priBlack.withOpacity(0.1),
-                                          width: 1,
-                                          strokeAlign: BorderSide.strokeAlignInside
-                                        ),
-                                      )
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                      Container(
-                                          height: SizeConfig.h(185.12),
-                                          width: SizeConfig.h(277.21),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(16.56),
-                                            // border: Border.all(color: Colors.red, width: 5, style: BorderStyle.solid),
-                                            image: DecorationImage(image:AssetImage(wallpaper['poster'] as String), fit: BoxFit.fill )
-                                          ),),
-                                SizedBox(width: SizeConfig.w(20)),
-                                Container(
-                                  height: SizeConfig.h(126),
-                                  width: SizeConfig.w(277),
-
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(wallpaper['name'] as String, style: TextStyle(
-                                          fontFamily: 'Poppings',
-                                          fontSize: SizeConfig.sp(30),
-                                          fontWeight: FontWeight.w500,
-                                          color: Stylings.priBlack,
-                                        ),
-                                        ),
-                                        Text(wallpaper['description'] as String, style: Stylings.cardSmall.copyWith(color: Stylings.priBlack),),
-                                        Container(
-                                          //padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                                          height: SizeConfig.h(34),
-                                          width: SizeConfig.w(110),
-                                          // padding: SizeConfig.padding(10,12),
-                                          decoration: BoxDecoration(
-
-                                              color: Color(0xFF878787).withOpacity(0.1),
-                                              borderRadius: BorderRadius.circular(SizeConfig.sp(30)),
-                                              border: Border.fromBorderSide(BorderSide(
-                                                  color:  Stylings.priBlack.withOpacity(0.05),
-                                                  width: 1,
-                                                  ))
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      Get.to(()=>WallpaperSetup());
+                                    },
+                                    child: Container(
+                                      height: SizeConfig.h(225.12),
+                                      width: SizeConfig.w(1346),
+                                      // padding: EdgeInsets.symmetric(vertical: 20),
+                                      decoration: BoxDecoration(
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            color: Stylings.priBlack.withOpacity(0.1),
+                                            width: 1,
+                                            strokeAlign: BorderSide.strokeAlignInside
                                           ),
-                                          child: Center(child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall,)),
                                         )
-                                      ],
-                                    ),
-                                ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                        Container(
+                                            height: SizeConfig.h(185.12),
+                                            width: SizeConfig.h(277.21),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(16.56),
+                                              // border: Border.all(color: Colors.red, width: 5, style: BorderStyle.solid),
+                                              image: DecorationImage(image:AssetImage(wallpaper['poster'] as String), fit: BoxFit.fill )
+                                            ),),
+                                                                    SizedBox(width: SizeConfig.w(20)),
+                                                                    Container(
+                                    height: SizeConfig.h(126),
+                                    width: SizeConfig.w(277),
 
-                                      ],
-                                    )
-                                    // ListTile(
-                                    //
-                                    //   leading: Container(
-                                    //     height: 277,
-                                    //     width: 277.21,
-                                    //     decoration: BoxDecoration(
-                                    //       borderRadius: BorderRadius.circular(16.56),
-                                    //       border: Border.all(color: Colors.red, width: 5, style: BorderStyle.solid),
-                                    //       image: DecorationImage(image:AssetImage(wallpaper['poster'] as String), fit: BoxFit.cover )
-                                    //     ),
-                                    //     // child: Image(image: AssetImage(wallpaper['poster'] as String), fit: BoxFit.cover,),
-                                    //   ),
-                                    //   title:
-                                    //   Column(
-                                    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                                    //     children: [
-                                    //       Text(wallpaper['name'] as String, style: TextStyle(
-                                    //         fontFamily: 'Poppings',
-                                    //         fontSize: 30,
-                                    //         fontWeight: FontWeight.w500,
-                                    //         color: Stylings.priBlack,
-                                    //       ),
-                                    //       ),
-                                    //       Text(wallpaper['description'] as String, style: Stylings.cardSmall.copyWith(color: Stylings.priBlack),),
-                                    //       Container(
-                                    //         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                                    //         height: 34,
-                                    //         width: 110,
-                                    //         decoration: BoxDecoration(
-                                    //             color: Color(0xFF8787871A).withOpacity(0.1),
-                                    //             borderRadius: BorderRadius.circular(30),
-                                    //             border: Border.fromBorderSide(BorderSide(
-                                    //                 color:  Stylings.priBlack.withOpacity(0.5),
-                                    //                 width: 1,
-                                    //                 style: BorderStyle.solid))
-                                    //         ),
-                                    //         child: Center(child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall.copyWith(color: Stylings.priWhite),)),
-                                    //       )
-                                    //     ],
-                                    //   ),
-                                    //   // subtitle: Column(
-                                    //   //
-                                    //   // ),
-                                    // ),
+                                    child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(wallpaper['name'] as String, style: TextStyle(
+                                            fontFamily: 'Poppings',
+                                            fontSize: SizeConfig.sp(30),
+                                            fontWeight: FontWeight.w500,
+                                            color: Stylings.priBlack,
+                                          ),
+                                          ),
+                                          Text(wallpaper['description'] as String, style: Stylings.cardSmall.copyWith(color: Stylings.priBlack),),
+                                          Container(
+                                            //padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                                            height: SizeConfig.h(34),
+                                            width: SizeConfig.w(110),
+                                            // padding: SizeConfig.padding(10,12),
+                                            decoration: BoxDecoration(
+
+                                                color: Color(0xFF878787).withOpacity(0.1),
+                                                borderRadius: BorderRadius.circular(SizeConfig.sp(30)),
+                                                border: Border.fromBorderSide(BorderSide(
+                                                    color:  Stylings.priBlack.withOpacity(0.05),
+                                                    width: 1,
+                                                    ))
+                                            ),
+                                            child: Center(child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall,)),
+                                          )
+                                        ],
+                                      ),
+                                                                    ),
+
+                                        ],
+                                      )
+                                      // ListTile(
+                                      //
+                                      //   leading: Container(
+                                      //     height: 277,
+                                      //     width: 277.21,
+                                      //     decoration: BoxDecoration(
+                                      //       borderRadius: BorderRadius.circular(16.56),
+                                      //       border: Border.all(color: Colors.red, width: 5, style: BorderStyle.solid),
+                                      //       image: DecorationImage(image:AssetImage(wallpaper['poster'] as String), fit: BoxFit.cover )
+                                      //     ),
+                                      //     // child: Image(image: AssetImage(wallpaper['poster'] as String), fit: BoxFit.cover,),
+                                      //   ),
+                                      //   title:
+                                      //   Column(
+                                      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                                      //     children: [
+                                      //       Text(wallpaper['name'] as String, style: TextStyle(
+                                      //         fontFamily: 'Poppings',
+                                      //         fontSize: 30,
+                                      //         fontWeight: FontWeight.w500,
+                                      //         color: Stylings.priBlack,
+                                      //       ),
+                                      //       ),
+                                      //       Text(wallpaper['description'] as String, style: Stylings.cardSmall.copyWith(color: Stylings.priBlack),),
+                                      //       Container(
+                                      //         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                                      //         height: 34,
+                                      //         width: 110,
+                                      //         decoration: BoxDecoration(
+                                      //             color: Color(0xFF8787871A).withOpacity(0.1),
+                                      //             borderRadius: BorderRadius.circular(30),
+                                      //             border: Border.fromBorderSide(BorderSide(
+                                      //                 color:  Stylings.priBlack.withOpacity(0.5),
+                                      //                 width: 1,
+                                      //                 style: BorderStyle.solid))
+                                      //         ),
+                                      //         child: Center(child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall.copyWith(color: Stylings.priWhite),)),
+                                      //       )
+                                      //     ],
+                                      //   ),
+                                      //   // subtitle: Column(
+                                      //   //
+                                      //   // ),
+                                      // ),
+                                    ),
                                   ),
                                 );
                       

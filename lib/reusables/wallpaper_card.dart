@@ -23,27 +23,41 @@ class WallpaperCard extends StatelessWidget {
       child: Container(
           height: SizeConfig.h(290.71),
           width: SizeConfig.w(435.33),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(SizeConfig.sp(26)),
+           image: DecorationImage(image: picture, fit: BoxFit.fill),
+        ),
         // decoration: BoxDecoration(
         //   border: Border.all(color: Colors.red, width: 5)
         // ),
         child: Stack(
           children: [
-            //Image(image: picture, fit: BoxFit.fill,),
             Container(
-              // height: SizeConfig.h(290.71),
-              // width: SizeConfig.w(435.33),
               decoration: BoxDecoration(
-                // border: Border.fromBorderSide(BorderSide(
-                //     color:  Colors.red,
-                //     width: 5,
-                //     style: BorderStyle.solid)),
-                image: DecorationImage(image: picture,
-                    // AssetImage('assets/images/nature.png'),
-                    fit: BoxFit.fill),
                 borderRadius: BorderRadius.circular(SizeConfig.sp(26)),
 
+                color: Color(0xFF000000).withOpacity(0.3),
               ),
             ),
+
+
+                //child: Image(image: picture, fit: BoxFit.fill,)),
+            // Container(
+            //   // height: SizeConfig.h(290.71),
+            //   // width: SizeConfig.w(435.33),
+            //   decoration: BoxDecoration(
+            //     color: Color(0xFF000000).withOpacity(0.9),
+            //     // border: Border.fromBorderSide(BorderSide(
+            //     //     color:  Colors.red,
+            //     //     width: 5,
+            //     //     style: BorderStyle.solid)),
+            //     image: DecorationImage(image: picture,
+            //         // AssetImage('assets/images/nature.png'),
+            //         fit: BoxFit.fill,),
+            //     borderRadius: BorderRadius.circular(SizeConfig.sp(26)),
+            //
+            //   ),
+            // ),
             Align(
               alignment: Alignment(-0.8, 0.8),
               child:

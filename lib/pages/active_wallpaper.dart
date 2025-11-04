@@ -166,6 +166,16 @@ class ActiveWallpaper extends StatelessWidget {
                                         fit: BoxFit.fill),
                                     borderRadius: BorderRadius.circular(SizeConfig.sp(26))
                                 ),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(SizeConfig.sp(26)),
+                                        color: Color(0xFF000000).withOpacity(0.3)
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                               SizedBox(width: SizeConfig.w(20)),
                               Container(

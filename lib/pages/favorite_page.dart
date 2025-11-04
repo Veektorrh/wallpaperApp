@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wallpaper_app/pages/settings.dart';
+import 'package:wallpaper_app/pages/wallpaper_setup.dart';
 
 import '../global_variables.dart';
 import '../reusables/mybutton.dart';
@@ -158,117 +159,122 @@ class FavoritePage extends StatelessWidget {
                       SliverGridDelegateWithFixedCrossAxisCount(
                         mainAxisSpacing: SizeConfig.h(23),
                         crossAxisSpacing: SizeConfig.w(20),
-                        childAspectRatio: (190/290),
+                        childAspectRatio: SizeConfig.w(190)/SizeConfig.h(290),
                         crossAxisCount: 6,
                       ),
                       itemBuilder: (context, index) {
                         final wallpaper = wallpapers[0];
                         return
-                          Container(
-                            height: SizeConfig.h(290.71),
-                            width: SizeConfig.w(190.18),
-                            decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.circular(
-                                  (16)),
-                              // border: Border.all(color: Colors.red, width: 5),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  ((wallpaper['designs'])
-                                  as List<
-                                      Map<String, String>
-                                  >)[index]['image']!,
+                          GestureDetector(
+                            onTap: (){
+                              Get.to(()=>WallpaperSetup());
+                            },
+                            child: Container(
+                              height: SizeConfig.h(290.71),
+                              width: SizeConfig.w(190.18),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                BorderRadius.circular(
+                                    (16)),
+                                // border: Border.all(color: Colors.red, width: 5),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    ((wallpaper['designs'])
+                                    as List<
+                                        Map<String, String>
+                                    >)[index]['image']!,
+                                  ),
+                                  fit: BoxFit.fill,
                                 ),
-                                fit: BoxFit.fill,
                               ),
-                            ),
-                            child: Stack(
-                              children: [
-                                Align(
-                                  alignment: Alignment(0.8, -0.8),
-                                  child: Container(
-                                    height: SizeConfig.h(40),
-                                    width: SizeConfig.w(40),
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.circular(30),
-                                      color: Stylings.priWhite,
-                                      border: Border.all(
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: Alignment(0.8, -0.8),
+                                    child: Container(
+                                      height: SizeConfig.h(40),
+                                      width: SizeConfig.w(40),
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(30),
                                         color: Stylings.priWhite,
-                                        width: 0.5,
+                                        border: Border.all(
+                                          color: Stylings.priWhite,
+                                          width: 0.5,
+                                        ),
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Icon(
-                                        Icons.favorite,size: SizeConfig.sp(18), color: Stylings.selected,
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.favorite,size: SizeConfig.sp(18), color: Stylings.selected,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Align(
-                                  alignment: Alignment(-0.8, 0.9),
-                                  child: Container(
-                                    // decoration: BoxDecoration(
-                                    //   border: Border.all(color: Colors.red, width: 5)
-                                    // ),
-                                    width: SizeConfig.w(100),
-                                    height: SizeConfig.h(75),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          ((wallpaper['designs']
-                                          as List<
-                                              Map<String, String>
-                                          >)[index]['title']!),
-                                          style: Stylings.subHeader
-                                              .copyWith(
-                                            color:
-                                            Stylings.priWhite,
-                                          ),
-                                        ),
-                                        Container(
-                                          height: SizeConfig.h(25),
-                                          width: SizeConfig.w(72),
-                                          decoration: BoxDecoration(
-                                            color: Stylings.priWhite
-                                                .withOpacity(0.2),
-                                            borderRadius:
-                                            BorderRadius.circular(SizeConfig.sp(24),
+                                  Align(
+                                    alignment: Alignment(-0.8, 0.9),
+                                    child: Container(
+                                      // decoration: BoxDecoration(
+                                      //   border: Border.all(color: Colors.red, width: 5)
+                                      // ),
+                                      width: SizeConfig.w(100),
+                                      height: SizeConfig.h(75),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            ((wallpaper['designs']
+                                            as List<
+                                                Map<String, String>
+                                            >)[index]['title']!),
+                                            style: Stylings.subHeader
+                                                .copyWith(
+                                              color:
+                                              Stylings.priWhite,
                                             ),
-                                            border:
-                                            Border.fromBorderSide(
-                                              BorderSide(
-                                                color:
-                                                Stylings
-                                                    .priWhite,
-                                                width: 0.5,
-                                                style:
-                                                BorderStyle
-                                                    .solid,
+                                          ),
+                                          Container(
+                                            height: SizeConfig.h(25),
+                                            width: SizeConfig.w(72),
+                                            decoration: BoxDecoration(
+                                              color: Stylings.priWhite
+                                                  .withOpacity(0.2),
+                                              borderRadius:
+                                              BorderRadius.circular(SizeConfig.sp(24),
+                                              ),
+                                              border:
+                                              Border.fromBorderSide(
+                                                BorderSide(
+                                                  color:
+                                                  Stylings
+                                                      .priWhite,
+                                                  width: 0.5,
+                                                  style:
+                                                  BorderStyle
+                                                      .solid,
+                                                ),
+                                              ),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                wallpaper['name']
+                                                as String,
+                                                style: Stylings
+                                                    .navSmall
+                                                    .copyWith(
+                                                  color:
+                                                  Stylings
+                                                      .priWhite,
+                                                ),
                                               ),
                                             ),
                                           ),
-                                          child: Center(
-                                            child: Text(
-                                              wallpaper['name']
-                                              as String,
-                                              style: Stylings
-                                                  .navSmall
-                                                  .copyWith(
-                                                color:
-                                                Stylings
-                                                    .priWhite,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                        ],
+                                      ),
 
-                                  ),
-                                )
-                              ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           );
 
