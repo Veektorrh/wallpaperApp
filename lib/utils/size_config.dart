@@ -15,7 +15,7 @@ class SizeConfig {
   static double scaleHeight = 1.0;
   static double scale = 1.0;
 
-  /// Call this inside every screen’s build() method
+
   static void init(BuildContext context) {
     final size = MediaQuery.of(context).size;
     _screenWidth = size.width;
@@ -24,7 +24,6 @@ class SizeConfig {
     scaleWidth = _screenWidth / figmaWidth;
     scaleHeight = _screenHeight / figmaHeight;
 
-    // Use the smaller scale for consistent font sizing
     scale = min(scaleWidth, scaleHeight);
   }
 
