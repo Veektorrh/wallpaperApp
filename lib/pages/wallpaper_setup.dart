@@ -25,6 +25,7 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       backgroundColor: Stylings.priBackground,
       body: Column(

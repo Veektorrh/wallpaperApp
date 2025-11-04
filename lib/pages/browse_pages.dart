@@ -24,6 +24,7 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     final LinearGradient gradient = LinearGradient(
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,

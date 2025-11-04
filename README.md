@@ -7,9 +7,9 @@ This project focuses primarily on UI/UX design rather than backend functionality
 
 ## 📦 Download & Demo
 
-[Download Windows Executable (.exe)]: https://drive.google.com/uc?export=download&id=1VUhcwSObap__U4_b-GbR3-RK8OVHudwa
-[Google Drive View App Zip Folder]: https://drive.google.com/file/d/1VUhcwSObap__U4_b-GbR3-RK8OVHudwa/view?usp=sharing 
-[Watch Demo Video]: https://drive.google.com/file/d/10z7QMfWKobds-5Yj3N8oEB4oX0VWbIIu/view?usp=sharing
+[Download Windows Executable (.exe)]: https://drive.google.com/uc?export=download&id=1Uh-5Y8vwwSunq5-sx1knfj0FGgYiFse2
+[Google Drive View App Zip Folder]: https://drive.google.com/file/d/1Uh-5Y8vwwSunq5-sx1knfj0FGgYiFse2/view?usp=sharing
+[Watch Demo Video]: https://drive.google.com/file/d/1v9X0TDDt0Erzucm0Rs_wa3rDItloWLN8/view?usp=sharing
 [View on GitHub]: https://github.com/Veektorrh/wallpaperApp.git
 [Figma File Link]: https://www.figma.com/design/WnHFPfZ7uW2vxy4sHqtb12/MOBILE-WALLPAPER-SELECTOR?node-id=0-1&p=f&t=2uDO3enoMFIThi2n-0
 
@@ -63,7 +63,7 @@ This project serves as a UI concept demo — ideal for:
 
 ### Or Run the .exe File
 
-- Download and run the prebuilt app here: https://drive.google.com/uc?export=download&id=1VUhcwSObap__U4_b-GbR3-RK8OVHudwa
+- Download and run the prebuilt app here: https://drive.google.com/uc?export=download&id=1Uh-5Y8vwwSunq5-sx1knfj0FGgYiFse2
 
 ---
 
