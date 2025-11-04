@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:wallpaper_app/pages/active_wallpaper.dart';
+import 'package:wallpaper_app/pages/favorite_page.dart';
+import 'package:wallpaper_app/pages/settings.dart';
 
 import '../reusables/mybutton.dart';
 import '../reusables/stylings.dart';
 import '../utils/size_config.dart';
+import 'browse_pages.dart';
+import 'home_page.dart';
 
 class EmptyFavorite extends StatelessWidget {
   EmptyFavorite({super.key});
@@ -29,34 +34,36 @@ class EmptyFavorite extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  padding: SizeConfig.padding(20, 20),
-                  width: SizeConfig.w(185),
-                  height: SizeConfig.h(61),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        height: SizeConfig.h(16),
-                        width: SizeConfig.w(16),
-                        child: Padding(
-                          padding: SizeConfig.padding(1, 1),
-                          child: Image(
-                            image: AssetImage('assets/images/studio_icon.png'),
-                            width: SizeConfig.w(14),
-                            height: SizeConfig.h(14),
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>HomePage());
+                  },
+                  child: Container(
+                    padding: SizeConfig.padding (20,20),
+                    width: SizeConfig.w(185),
+                    height: SizeConfig.h(61),
+                    child: Row(
+                      children: [
+                        SizedBox(
+
+                          height: SizeConfig.h(16),
+                          width: SizeConfig.w(16),
+                          child: Padding(
+                            padding: SizeConfig.padding(1, 1),
+                            child: Image(
+                              image: AssetImage('assets/images/studio_icon.png'),
+                              width: SizeConfig.w(14),
+                              height: SizeConfig.h(14),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: SizeConfig.w(8)),
-                      Container(
-                        width: SizeConfig.w(121),
-                        height: SizeConfig.h(21),
-                        child: Text(
-                          'Wallpaper Studio',
-                          style: Stylings.navSmall,
-                        ),
-                      ),
-                    ],
+                        SizedBox(width: SizeConfig.w(8)),
+                        Container(
+                            width: SizeConfig.w(121),
+                            height: SizeConfig.h(21),
+                            child: Text('Wallpaper Studio', style: Stylings.navSmall)),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -66,28 +73,48 @@ class EmptyFavorite extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Mybutton(
-                        bText: 'Home',
-                        isActive: false,
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> ActiveWallpaper());
+                        },
+                        child: Mybutton(
+                          bText: 'Home',
+                          isActive: false,
 
-                        picture: AssetImage('assets/images/homeicon.png'),
+                          picture: AssetImage('assets/images/homeicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Browse',
-                        isActive: false,
-                        picture: AssetImage('assets/images/browseicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>BrowsePage());
+                        },
+                        child: Mybutton(
+                          bText: 'Browse',
+                          isActive: false,
+                          picture: AssetImage('assets/images/browseicon.png'),
+                        ),
+                      ),
+                      SizedBox(width:SizeConfig.w(12)),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>EmptyFavorite());
+                        },
+                        child: Mybutton(
+                          bText: 'Favorite',
+                          picture: AssetImage('assets/images/favicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Favorite',
-                        picture: AssetImage('assets/images/favicon.png'),
-                      ),
-                      SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Settings',
-                        isActive: false,
-                        picture: AssetImage('assets/images/settingsicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>Settings());
+                        },
+                        child: Mybutton(
+                          bText: 'Settings',
+                          isActive: false,
+                          picture: AssetImage('assets/images/settingsicon.png'),
+                        ),
                       ),
                     ],
                   ),
@@ -148,21 +175,26 @@ class EmptyFavorite extends StatelessWidget {
                                 color: Color(0xFF575757),
                               ),),
                               Text('Start saving your favorite wallpapers to see them here', style: Stylings.navSmall.copyWith(color: Color(0xFF575757)),),
-                              Container(
-                                height: SizeConfig.h(50),
-                                width: SizeConfig.w(200),
-                                decoration: BoxDecoration(
-                                  color: Stylings.selected,
-                                  borderRadius: BorderRadius.circular(SizeConfig.sp(21)),
-                                ),
+                              GestureDetector(
+                                onTap: (){
+                                  Get.to(()=>FavoritePage());
+                                },
+                                child: Container(
+                                  height: SizeConfig.h(50),
+                                  width: SizeConfig.w(200),
+                                  decoration: BoxDecoration(
+                                    color: Stylings.selected,
+                                    borderRadius: BorderRadius.circular(SizeConfig.sp(21)),
+                                  ),
 
-                                child: Center(
-                                  child: Text('Browse Wallpapaers', style: TextStyle(
-                                    fontFamily: 'Poppings',
-                                    fontSize: SizeConfig.sp(14),
-                                    fontWeight: FontWeight.w500,
-                                    color: Stylings.priWhite,
-                                  ),),
+                                  child: Center(
+                                    child: Text('Browse Wallpapaers', style: TextStyle(
+                                      fontFamily: 'Poppings',
+                                      fontSize: SizeConfig.sp(14),
+                                      fontWeight: FontWeight.w500,
+                                      color: Stylings.priWhite,
+                                    ),),
+                                  ),
                                 ),
                               )
                             ],

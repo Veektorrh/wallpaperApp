@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wallpaper_app/global_variables.dart';
+import 'package:wallpaper_app/pages/active_wallpaper.dart';
+import 'package:wallpaper_app/pages/browse_pages.dart';
+import 'package:wallpaper_app/pages/empty_favorite.dart';
+import 'package:wallpaper_app/pages/settings.dart';
 import 'package:wallpaper_app/reusables/stylings.dart';
 import 'package:wallpaper_app/reusables/wallpaper_card.dart';
 import 'package:wallpaper_app/utils/size_config.dart';
@@ -66,28 +70,49 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Mybutton(
-                        bText: 'Home',
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> ActiveWallpaper());
+                        },
+                        child: Mybutton(
+                          bText: 'Home',
+                          isActive: false,
 
-                        picture: AssetImage('assets/images/homeicon.png'),
+                          picture: AssetImage('assets/images/homeicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Browse',
-                        isActive: false,
-                        picture: AssetImage('assets/images/browseicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>BrowsePage());
+                        },
+                        child: Mybutton(
+                          bText: 'Browse',
+                          isActive: false,
+                          picture: AssetImage('assets/images/browseicon.png'),
+                        ),
                       ),
                       SizedBox(width:SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Favorite',
-                        isActive: false,
-                        picture: AssetImage('assets/images/favicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>EmptyFavorite());
+                        },
+                        child: Mybutton(
+                          bText: 'Favorite',
+                          isActive: false,
+                          picture: AssetImage('assets/images/favicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Settings',
-                        isActive: false,
-                        picture: AssetImage('assets/images/settingsicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>Settings());
+                        },
+                        child: Mybutton(
+                          bText: 'Settings',
+                          isActive: false,
+                          picture: AssetImage('assets/images/settingsicon.png'),
+                        ),
                       ),
                     ],
                   ),
@@ -138,7 +163,7 @@ class HomePage extends StatelessWidget {
                       itemCount: wallpapers.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             mainAxisSpacing: SizeConfig.h(23),
-                            childAspectRatio: 1.5,
+                            childAspectRatio: SizeConfig.w(435.33) / SizeConfig.h(290.71),
                             crossAxisSpacing: SizeConfig.w(20),
                             crossAxisCount: 3),
                         itemBuilder: (context, index) {

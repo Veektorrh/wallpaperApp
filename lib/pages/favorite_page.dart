@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wallpaper_app/pages/settings.dart';
 
 import '../global_variables.dart';
 import '../reusables/mybutton.dart';
 import '../reusables/stylings.dart';
 import '../utils/size_config.dart';
+import 'active_wallpaper.dart';
+import 'browse_pages.dart';
+import 'empty_favorite.dart';
+import 'home_page.dart';
 
 class FavoritePage extends StatelessWidget {
    FavoritePage({super.key});
@@ -29,31 +34,36 @@ class FavoritePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  padding: SizeConfig.padding (20,20),
-                  width: SizeConfig.w(185),
-                  height: SizeConfig.h(61),
-                  child: Row(
-                    children: [
-                      SizedBox(
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>HomePage());
+                  },
+                  child: Container(
+                    padding: SizeConfig.padding (20,20),
+                    width: SizeConfig.w(185),
+                    height: SizeConfig.h(61),
+                    child: Row(
+                      children: [
+                        SizedBox(
 
-                        height: SizeConfig.h(16),
-                        width: SizeConfig.w(16),
-                        child: Padding(
-                          padding: SizeConfig.padding(1, 1),
-                          child: Image(
-                            image: AssetImage('assets/images/studio_icon.png'),
-                            width: SizeConfig.w(14),
-                            height: SizeConfig.h(14),
+                          height: SizeConfig.h(16),
+                          width: SizeConfig.w(16),
+                          child: Padding(
+                            padding: SizeConfig.padding(1, 1),
+                            child: Image(
+                              image: AssetImage('assets/images/studio_icon.png'),
+                              width: SizeConfig.w(14),
+                              height: SizeConfig.h(14),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: SizeConfig.w(8)),
-                      Container(
-                          width: SizeConfig.w(121),
-                          height: SizeConfig.h(21),
-                          child: Text('Wallpaper Studio', style: Stylings.navSmall)),
-                    ],
+                        SizedBox(width: SizeConfig.w(8)),
+                        Container(
+                            width: SizeConfig.w(121),
+                            height: SizeConfig.h(21),
+                            child: Text('Wallpaper Studio', style: Stylings.navSmall)),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -63,28 +73,48 @@ class FavoritePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Mybutton(
-                        bText: 'Home',
-                        isActive: false,
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> ActiveWallpaper());
+                        },
+                        child: Mybutton(
+                          bText: 'Home',
+                          isActive: false,
 
-                        picture: AssetImage('assets/images/homeicon.png'),
+                          picture: AssetImage('assets/images/homeicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Browse',
-                        isActive: false,
-                        picture: AssetImage('assets/images/browseicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>BrowsePage());
+                        },
+                        child: Mybutton(
+                          bText: 'Browse',
+                          isActive: false,
+                          picture: AssetImage('assets/images/browseicon.png'),
+                        ),
                       ),
                       SizedBox(width:SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Favorite',
-                        picture: AssetImage('assets/images/favicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>EmptyFavorite());
+                        },
+                        child: Mybutton(
+                          bText: 'Favorite',
+                          picture: AssetImage('assets/images/favicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Settings',
-                        isActive: false,
-                        picture: AssetImage('assets/images/settingsicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>Settings());
+                        },
+                        child: Mybutton(
+                          bText: 'Settings',
+                          isActive: false,
+                          picture: AssetImage('assets/images/settingsicon.png'),
+                        ),
                       ),
                     ],
                   ),
@@ -170,7 +200,7 @@ class FavoritePage extends StatelessWidget {
                                     ),
                                     child: Center(
                                       child: Icon(
-                                        Icons.favorite_border,size: SizeConfig.sp(18), color: Stylings.selected,
+                                        Icons.favorite,size: SizeConfig.sp(18), color: Stylings.selected,
                                       ),
                                     ),
                                   ),

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wallpaper_app/pages/active_wallpaper.dart';
+import 'package:wallpaper_app/pages/settings.dart';
 
 import '../global_variables.dart';
 import '../reusables/mybutton.dart';
 import '../reusables/stylings.dart';
 import '../reusables/wallpaper_card.dart';
 import '../utils/size_config.dart';
+import 'empty_favorite.dart';
+import 'home_page.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({super.key});
@@ -28,79 +32,103 @@ class _BrowsePageState extends State<BrowsePage> {
       backgroundColor: Stylings.priBackground,
       body: Column(
         children: [
-      Container(
-      padding: SizeConfig.padding(47, 0),
-      color: Colors.white,
-      height: SizeConfig.h(98),
-      width: Get.width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
           Container(
-            padding: SizeConfig.padding (20,20),
-            width: SizeConfig.w(185),
-            height: SizeConfig.h(61),
+            padding: SizeConfig.padding(47, 0),
+            color: Colors.white,
+            height: SizeConfig.h(98),
+            width: Get.width,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>HomePage());
+                  },
+                  child: Container(
+                    padding: SizeConfig.padding (20,20),
+                    width: SizeConfig.w(185),
+                    height: SizeConfig.h(61),
+                    child: Row(
+                      children: [
+                        SizedBox(
 
-                  height: SizeConfig.h(16),
-                  width: SizeConfig.w(16),
-                  child: Padding(
-                    padding: SizeConfig.padding(1, 1),
-                    child: Image(
-                      image: AssetImage('assets/images/studio_icon.png'),
-                      width: SizeConfig.w(14),
-                      height: SizeConfig.h(14),
+                          height: SizeConfig.h(16),
+                          width: SizeConfig.w(16),
+                          child: Padding(
+                            padding: SizeConfig.padding(1, 1),
+                            child: Image(
+                              image: AssetImage('assets/images/studio_icon.png'),
+                              width: SizeConfig.w(14),
+                              height: SizeConfig.h(14),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: SizeConfig.w(8)),
+                        Container(
+                            width: SizeConfig.w(121),
+                            height: SizeConfig.h(21),
+                            child: Text('Wallpaper Studio', style: Stylings.navSmall)),
+                      ],
                     ),
                   ),
                 ),
-                SizedBox(width: SizeConfig.w(8)),
                 Container(
-                    width: SizeConfig.w(121),
-                    height: SizeConfig.h(21),
-                    child: Text('Wallpaper Studio', style: Stylings.navSmall)),
+                  width: SizeConfig.w(523),
+                  height: SizeConfig.h(44),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> ActiveWallpaper());
+                        },
+                        child: Mybutton(
+                          bText: 'Home',
+                          isActive: false,
+
+                          picture: AssetImage('assets/images/homeicon.png'),
+                        ),
+                      ),
+                      SizedBox(width: SizeConfig.w(12)),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>BrowsePage());
+                        },
+                        child: Mybutton(
+                          bText: 'Browse',
+                          picture: AssetImage('assets/images/browseicon.png'),
+                        ),
+                      ),
+                      SizedBox(width:SizeConfig.w(12)),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>EmptyFavorite());
+                        },
+                        child: Mybutton(
+                          bText: 'Favorite',
+                          isActive: false,
+                          picture: AssetImage('assets/images/favicon.png'),
+                        ),
+                      ),
+                      SizedBox(width: SizeConfig.w(12)),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>Settings());
+                        },
+                        child: Mybutton(
+                          bText: 'Settings',
+                          isActive: false,
+                          picture: AssetImage('assets/images/settingsicon.png'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-          Container(
-            width: SizeConfig.w(523),
-            height: SizeConfig.h(44),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Mybutton(
-                  bText: 'Home',
-                  isActive: false,
-
-                  picture: AssetImage('assets/images/homeicon.png'),
-                ),
-                SizedBox(width: SizeConfig.w(12)),
-                Mybutton(
-                  bText: 'Browse',
-
-                  picture: AssetImage('assets/images/browseicon.png'),
-                ),
-                SizedBox(width:SizeConfig.w(12)),
-                Mybutton(
-                  bText: 'Favorite',
-                  isActive: false,
-                  picture: AssetImage('assets/images/favicon.png'),
-                ),
-                SizedBox(width: SizeConfig.w(12)),
-                Mybutton(
-                  bText: 'Settings',
-                  isActive: false,
-                  picture: AssetImage('assets/images/settingsicon.png'),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
 // SizedBox(height: 50,),
           Expanded(
             child: Padding(
@@ -172,7 +200,7 @@ class _BrowsePageState extends State<BrowsePage> {
                           itemCount: wallpapers.length,
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               mainAxisSpacing: 23,
-                              childAspectRatio: 1.5,
+                              childAspectRatio: SizeConfig.w(435.33) / SizeConfig.h(290.71),
                               crossAxisSpacing: 20,
                               crossAxisCount: 3),
                           itemBuilder: (context, index) {

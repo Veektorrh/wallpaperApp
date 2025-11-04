@@ -3,11 +3,17 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:wallpaper_app/pages/settings.dart';
+import 'package:wallpaper_app/pages/wallpaper_setup.dart';
 import 'package:wallpaper_app/utils/size_config.dart';
 
 import '../global_variables.dart';
 import '../reusables/mybutton.dart';
 import '../reusables/stylings.dart';
+import 'active_wallpaper.dart';
+import 'browse_pages.dart';
+import 'empty_favorite.dart';
+import 'home_page.dart';
 
 class WallpaperDetails extends StatefulWidget {
   const WallpaperDetails({super.key});
@@ -34,31 +40,36 @@ class _WallpaperSetupState extends State<WallpaperDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  padding: SizeConfig.padding (20,20),
-                  width: SizeConfig.w(185),
-                  height: SizeConfig.h(61),
-                  child: Row(
-                    children: [
-                      SizedBox(
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>HomePage());
+                  },
+                  child: Container(
+                    padding: SizeConfig.padding (20,20),
+                    width: SizeConfig.w(185),
+                    height: SizeConfig.h(61),
+                    child: Row(
+                      children: [
+                        SizedBox(
 
-                        height: SizeConfig.h(16),
-                        width: SizeConfig.w(16),
-                        child: Padding(
-                          padding: SizeConfig.padding(1, 1),
-                          child: Image(
-                            image: AssetImage('assets/images/studio_icon.png'),
-                            width: SizeConfig.w(14),
-                            height: SizeConfig.h(14),
+                          height: SizeConfig.h(16),
+                          width: SizeConfig.w(16),
+                          child: Padding(
+                            padding: SizeConfig.padding(1, 1),
+                            child: Image(
+                              image: AssetImage('assets/images/studio_icon.png'),
+                              width: SizeConfig.w(14),
+                              height: SizeConfig.h(14),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: SizeConfig.w(8)),
-                      Container(
-                          width: SizeConfig.w(121),
-                          height: SizeConfig.h(21),
-                          child: Text('Wallpaper Studio', style: Stylings.navSmall)),
-                    ],
+                        SizedBox(width: SizeConfig.w(8)),
+                        Container(
+                            width: SizeConfig.w(121),
+                            height: SizeConfig.h(21),
+                            child: Text('Wallpaper Studio', style: Stylings.navSmall)),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -68,29 +79,48 @@ class _WallpaperSetupState extends State<WallpaperDetails> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Mybutton(
-                        bText: 'Home',
-                        isActive: false,
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> ActiveWallpaper());
+                        },
+                        child: Mybutton(
+                          bText: 'Home',
+                          isActive: false,
 
-                        picture: AssetImage('assets/images/homeicon.png'),
+                          picture: AssetImage('assets/images/homeicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Browse',
-
-                        picture: AssetImage('assets/images/browseicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>BrowsePage());
+                        },
+                        child: Mybutton(
+                          bText: 'Browse',
+                          picture: AssetImage('assets/images/browseicon.png'),
+                        ),
                       ),
                       SizedBox(width:SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Favorite',
-                        isActive: false,
-                        picture: AssetImage('assets/images/favicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>EmptyFavorite());
+                        },
+                        child: Mybutton(
+                          bText: 'Favorite',
+                          isActive: false,
+                          picture: AssetImage('assets/images/favicon.png'),
+                        ),
                       ),
                       SizedBox(width: SizeConfig.w(12)),
-                      Mybutton(
-                        bText: 'Settings',
-                        isActive: false,
-                        picture: AssetImage('assets/images/settingsicon.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=>Settings());
+                        },
+                        child: Mybutton(
+                          bText: 'Settings',
+                          isActive: false,
+                          picture: AssetImage('assets/images/settingsicon.png'),
+                        ),
                       ),
                     ],
                   ),
@@ -957,7 +987,7 @@ class _WallpaperSetupState extends State<WallpaperDetails> {
                     alignment: Alignment.centerRight,
                     child: Container(
                       padding: SizeConfig.padding(37, 37),
-                      height: SizeConfig.h(1070),
+                      // height: SizeConfig.h(1070),
                       width: SizeConfig.w(656),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -1417,21 +1447,26 @@ class _WallpaperSetupState extends State<WallpaperDetails> {
 
                                       ),
                                       SizedBox(width:SizeConfig.w(20)),
-                                      Container(
-                                          height: SizeConfig.h(50),
-                                          width: SizeConfig.h(200),
-                                          padding: SizeConfig.padding(10,10),
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFFBB03B),
-                                              borderRadius: BorderRadius.circular(21),
-                                              border: Border.all(
-                                                  color: Color(0xFFDFDFDF),
-                                                  width: 1,
-                                                  strokeAlign: BorderSide.strokeAlignInside
-                                              )
-                                          ),
-                                          child:
-                                          Center(child: Text('Save Settings',style: Stylings.navSmall.copyWith(fontWeight: FontWeight.w500, color: Stylings.priWhite),))
+                                      GestureDetector(
+                                        onTap:(){
+                                          Get.to(()=>WallpaperSetup());
+                                        },
+                                        child: Container(
+                                            height: SizeConfig.h(50),
+                                            width: SizeConfig.h(200),
+                                            padding: SizeConfig.padding(10,10),
+                                            decoration: BoxDecoration(
+                                                color: Color(0xFFFBB03B),
+                                                borderRadius: BorderRadius.circular(21),
+                                                border: Border.all(
+                                                    color: Color(0xFFDFDFDF),
+                                                    width: 1,
+                                                    strokeAlign: BorderSide.strokeAlignInside
+                                                )
+                                            ),
+                                            child:
+                                            Center(child: Text('Save Settings',style: Stylings.navSmall.copyWith(fontWeight: FontWeight.w500, color: Stylings.priWhite),))
+                                        ),
                                       ),
 
                                     ]),
