@@ -148,6 +148,8 @@ class ActiveWallpaper extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
+                          height: SizeConfig.h(210.33),
+                          width: SizeConfig.w(1173),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -180,10 +182,10 @@ class ActiveWallpaper extends StatelessWidget {
                               ),
                               SizedBox(width: SizeConfig.w(20)),
                               Container(
-                                height: SizeConfig.h(146),
-                                width: SizeConfig.w(1056),
+                                // height: SizeConfig.h(146),
+                                // width: SizeConfig.w(1056),
                                 child: Column(
-                                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
@@ -251,7 +253,7 @@ class ActiveWallpaper extends StatelessWidget {
                           ),
                         ),
                         Align(
-                          alignment: Alignment(1, 1),
+                          alignment: Alignment(0.8, 0.8),
                           child: Container(
                             height: SizeConfig.h(40),
                             width: SizeConfig.w(92),

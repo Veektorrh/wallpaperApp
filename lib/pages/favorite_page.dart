@@ -192,12 +192,15 @@ class FavoritePage extends StatelessWidget {
                                 children: [
                                   Align(
                                     alignment: Alignment(0.8, -0.8),
-                                    child: Container(
-                                      height: SizeConfig.h(40),
-                                      width: SizeConfig.w(40),
+                                    child:
+                                    Container(
+                                      constraints: BoxConstraints(maxWidth:30, maxHeight:30,),
+                                      padding: SizeConfig.padding(10, 8),
+                                      // height: SizeConfig.h(40),
+                                      // width: SizeConfig.w(40),
                                       decoration: BoxDecoration(
                                         borderRadius:
-                                        BorderRadius.circular(30),
+                                        BorderRadius.circular(SizeConfig.sp(30)),
                                         color: Stylings.priWhite,
                                         border: Border.all(
                                           color: Stylings.priWhite,

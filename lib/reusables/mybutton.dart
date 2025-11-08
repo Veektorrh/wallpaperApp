@@ -23,6 +23,7 @@ class Mybutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: SizeConfig.h(44),
+      width: SizeConfig.w(108),
       padding: SizeConfig.padding(16, 10),
       // margin: hasMargin ? EdgeInsets.symmetric(horizontal: 6) : EdgeInsets.zero,
       //alignment: const Alignment(0, 0),

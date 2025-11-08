@@ -321,6 +321,7 @@ class Settings extends StatelessWidget {
                       ),
                       SizedBox(height: SizeConfig.h(214),),
                       Container(
+                      constraints: BoxConstraints(maxWidth: SizeConfig.w(200) ),
                         height: SizeConfig.h(524.99),
                         width: SizeConfig.w(258.04),
                         decoration: BoxDecoration(
@@ -365,14 +366,15 @@ class Settings extends StatelessWidget {
                             Align(
                               alignment: Alignment(0, 0),
                               child: Container(
+                                constraints: BoxConstraints(maxWidth: SizeConfig.w(150)),
                                 height: SizeConfig.h(73),
-                                width: SizeConfig.w(185),
+                                // width: SizeConfig.w(185),
                                 child: Column(
                                 children: [
                                   Container(
                                     padding: SizeConfig.padding(10, 10),
                                     height: SizeConfig.h(44),
-                                    width: SizeConfig.w(181),
+                                    // width: SizeConfig.w(181),
                                     decoration: BoxDecoration(
                                       color: Color(0xFFCFFFC3),
                                       borderRadius: BorderRadius.circular(SizeConfig.sp(21)),
@@ -404,6 +406,7 @@ class Settings extends StatelessWidget {
                                     //   ),),
                                     // ),
                                   ),
+                                  SizedBox(height: SizeConfig.h(11),),
                                   Text('Click to Disconnect', style: TextStyle(
                                     fontFamily: 'Poppings',
                                     fontSize: SizeConfig.sp(12),

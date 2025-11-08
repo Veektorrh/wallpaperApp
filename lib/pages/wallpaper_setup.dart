@@ -22,6 +22,7 @@ class WallpaperSetup extends StatefulWidget {
 
 class _WallpaperSetupState extends State<WallpaperSetup> {
   bool isGrid = true;
+  String selectedWallpaper = 'assets/images/active.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +56,10 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                           width: SizeConfig.w(16),
                           child: Padding(
                             padding: SizeConfig.padding(1, 1),
-                            child: Image(
-                              image: AssetImage('assets/images/studio_icon.png'),
-                              width: SizeConfig.w(14),
-                              height: SizeConfig.h(14),
+                            child: Image( fit: BoxFit.contain,
+                              image: AssetImage('assets/images/studio_icon.png',),
+                              // width: SizeConfig.w(14),
+                              // height: SizeConfig.h(14),
                             ),
                           ),
                         ),
@@ -216,120 +217,177 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                     itemBuilder: (context, index) {
                                       final wallpaper = wallpapers[0];
                                       return
-                                        Container(
-                                          height: SizeConfig.h(290.71),
-                                          width: SizeConfig.w(190.18),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                (SizeConfig.sp(16))),
-                                            // border: Border.all(color: Colors.red, width: 5),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                ((wallpaper['designs'])
-                                                as List<
-                                                    Map<String, String>
-                                                >)[index]['image']!,
-                                              ),
-                                              fit: BoxFit.fill,
-                                            ),
-                                          ),
-                                          child: Stack(
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                    BorderRadius.circular(
-                                                        (SizeConfig.sp(16))),
-                                                  color: Color(0xFF000000).withOpacity(0.3),
+                                        GestureDetector(
+                                          onTap: (){
+                                            setState(() {
+                                              selectedWallpaper = ((wallpaper['designs'])
+                                              as List<
+                                                  Map<String, String>
+                                              >)[index]['image']!;
+                                            });
+                                          },
+                                          child: Container(
+                                            height: SizeConfig.h(290.71),
+                                            width: SizeConfig.w(190.18),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  (SizeConfig.sp(16))),
+
+                                               border: Border.all(color: selectedWallpaper == ((wallpaper['designs'])
+                                               as List<
+                                                   Map<String, String>
+                                               >)[index]['image']!
+                                                ? Colors.blueAccent
+                                                : Colors.transparent),
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                  ((wallpaper['designs'])
+                                                  as List<
+                                                      Map<String, String>
+                                                  >)[index]['image']!,
                                                 ),
+                                                fit: BoxFit.fill,
                                               ),
-                                              Align(
-                                                    alignment: Alignment(0.8, -0.8),
-                                                    child: Container(
-                                                      height: SizeConfig.h(40),
-                                                      width: SizeConfig.w(40),
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.circular(30),
-                                                        color: Stylings.priWhite
-                                                            .withOpacity(0.2),
-                                                        border: Border.all(
-                                                          color: Stylings.priWhite,
-                                                          width: 0.5,
-                                                        ),
-                                                      ),
-                                                      child: Center(
-                                                        child: Icon(
-                                                          Icons.favorite_border,size: SizeConfig.sp(18),
-                                                        ),
-                                                      ),
-                                                    ),
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                      BorderRadius.circular(
+                                                          (SizeConfig.sp(16))),
+                                                    color: Color(0xFF000000).withOpacity(0.3),
                                                   ),
-                                              Align(
-                                                alignment: Alignment(-0.8, 0.9),
-                                                child: Container(
-                                                  // decoration: BoxDecoration(
-                                                  //   border: Border.all(color: Colors.red, width: 5)
-                                                  // ),
-                                                  width: SizeConfig.w(100),
-                                                  height: SizeConfig.h(75),
-                                                  child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: [
-                                                      Text(
-                                                        ((wallpaper['designs']
-                                                        as List<
-                                                            Map<String, String>
-                                                        >)[index]['title']!),
-                                                        style: Stylings.subHeader
-                                                            .copyWith(
-                                                          color:
-                                                          Stylings.priWhite,
-                                                        ),
-                                                      ),
+                                                ),
+                                                Align(
+                                                      alignment: Alignment(0.8, -0.8),
+                                                      child:
                                                       Container(
-                                                        height: SizeConfig.h(25),
-                                                        width: SizeConfig.w(72),
+                                                        constraints: BoxConstraints(maxWidth:30, maxHeight:30,),
+                                                        padding: SizeConfig.padding(10, 8),
+                                                        // height: SizeConfig.h(40),
+
                                                         decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.circular(SizeConfig.sp(30)),
                                                           color: Stylings.priWhite
                                                               .withOpacity(0.2),
-                                                          borderRadius:
-                                                          BorderRadius.circular(SizeConfig.sp(24),
-                                                          ),
-                                                          border:
-                                                          Border.fromBorderSide(
-                                                            BorderSide(
-                                                              color:
-                                                              Stylings
-                                                                  .priWhite,
-                                                              width: 0.5,
-                                                              style:
-                                                              BorderStyle
-                                                                  .solid,
-                                                            ),
+                                                          border: Border.all(
+                                                            color: Stylings.priWhite,
+                                                            width: 0.5,
                                                           ),
                                                         ),
                                                         child: Center(
-                                                          child: Text(
-                                                            wallpaper['name']
-                                                            as String,
-                                                            style: Stylings
-                                                                .navSmall
-                                                                .copyWith(
-                                                              color:
-                                                              Stylings
-                                                                  .priWhite,
-                                                            ),
+                                                          child: Icon(
+                                                            Icons.favorite_border,
+                                                             size: SizeConfig.sp(18),
                                                           ),
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                Align(
+                                                  alignment: Alignment(-0.8, 0.9),
+                                                  child:
 
-                                                ),
-                                              )
-                                            ],
+                                                  Container(
+                                                    padding:SizeConfig.padding(16, 16),
+                                                     // decoration: BoxDecoration(
+                                                     //   border: Border.all(color: Colors.red, width: 5)
+                                                     // ),
+                                                    width: SizeConfig.w(190),
+                                                    height: SizeConfig.h(99),
+                                                    child: Column(
+                                                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text(
+                                                          ((wallpaper['designs']
+                                                          as List<
+                                                              Map<String, String>
+                                                          >)[index]['title']!),
+                                                          style: Stylings.subHeader
+                                                              .copyWith(
+                                                            color:
+                                                            Stylings.priWhite,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: SizeConfig.h(4),),
+                                                        SizedBox(
+                                                          height: SizeConfig.h(25),
+                                                          // width: SizeConfig.w(110),
+                                                          child:
+                                                          TextButton(
+                                                            onPressed: (){},
+                                                            style: TextButton.styleFrom(
+                                                              // minimumSize: Size(SizeConfig.w(110), SizeConfig.h(26),),
+                                                              backgroundColor: Stylings.priWhite.withOpacity(0.2),// background color// text color
+                                                               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                                                              shape: RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius.circular(SizeConfig.sp(24)), // border radius
+                                                                side: BorderSide(
+                                                                  color: Stylings.priWhite,// border color
+                                                                  width: 0.5, // border width
+                                                                ),
+                                                              ),
+                                                            ),
+
+                                                            child: Text(
+                                              wallpaper['name']
+                                              as String,
+                                              style: Stylings
+                                                  .navSmall
+                                                  .copyWith(
+                                                color:
+                                                Stylings
+                                                    .priWhite,
+                                              ),
+                                            ),
+                                                          ),
+                                                        )
+                                                        // Container(
+                                                        //   height: SizeConfig.h(25),
+                                                        //   width: SizeConfig.w(72),
+                                                        //   decoration: BoxDecoration(
+                                                        //     color: Stylings.priWhite
+                                                        //         .withOpacity(0.2),
+                                                        //     borderRadius:
+                                                        //     BorderRadius.circular(SizeConfig.sp(24),
+                                                        //     ),
+                                                        //     border:
+                                                        //     Border.fromBorderSide(
+                                                        //       BorderSide(
+                                                        //         color:
+                                                        //         Stylings
+                                                        //             .priWhite,
+                                                        //         width: 0.5,
+                                                        //         style:
+                                                        //         BorderStyle
+                                                        //             .solid,
+                                                        //       ),
+                                                        //     ),
+                                                        //   ),
+                                                        //   child: Center(
+                                                        //     child: Text(
+                                                        //       wallpaper['name']
+                                                        //       as String,
+                                                        //       style: Stylings
+                                                        //           .navSmall
+                                                        //           .copyWith(
+                                                        //         color:
+                                                        //         Stylings
+                                                        //             .priWhite,
+                                                        //       ),
+                                                        //     ),
+                                                        //   ),
+                                                        // ),
+                                                      ],
+                                                    ),
+
+                                                  ),
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         );
 
@@ -850,8 +908,9 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                             ),
                           ),
                           Container(
-                            height: Get.height * 0.51, //SizeConfig.h(524.99),
-                            width:  Get.width * 0.17,//SizeConfig.w(258.04),
+                            constraints: BoxConstraints(maxWidth: SizeConfig.w(180) ),
+                            height:  SizeConfig.h(524.99), //Get.height * 0.51,
+                            width:  SizeConfig.w(258.04), //Get.width * 0.17,
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
                                 BorderSide(
@@ -862,7 +921,7 @@ class _WallpaperSetupState extends State<WallpaperSetup> {
                                 ),
                               ),
                               image: DecorationImage(
-                                image: AssetImage('assets/images/active.jpg'),
+                                image: AssetImage(selectedWallpaper),
                                 // AssetImage('assets/images/nature.png'),
                                 fit: BoxFit.fill,
                               ),

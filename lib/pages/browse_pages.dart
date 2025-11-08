@@ -268,22 +268,44 @@ class _BrowsePageState extends State<BrowsePage> {
                                           ),
                                           ),
                                           Text(wallpaper['description'] as String, style: Stylings.cardSmall.copyWith(color: Stylings.priBlack),),
-                                          Container(
-                                            //padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                                          SizedBox(
                                             height: SizeConfig.h(34),
-                                            width: SizeConfig.w(110),
-                                            // padding: SizeConfig.padding(10,12),
-                                            decoration: BoxDecoration(
+                                            // width: SizeConfig.w(110),
+                                            child:
+                                            TextButton(
+                                              onPressed: (){},
+                                              style: TextButton.styleFrom(
+                                                // minimumSize: Size(SizeConfig.w(110), SizeConfig.h(26),),
+                                                backgroundColor: Color(0xFF878787).withOpacity(0.1),// background color// text color
+                                                // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(SizeConfig.sp(30)), // border radius
+                                                  side: BorderSide(
+                                                    color: Stylings.priWhite,// border color
+                                                    width: 1, // border width
+                                                  ),
+                                                ),
+                                              ),
 
-                                                color: Color(0xFF878787).withOpacity(0.1),
-                                                borderRadius: BorderRadius.circular(SizeConfig.sp(30)),
-                                                border: Border.fromBorderSide(BorderSide(
-                                                    color:  Stylings.priBlack.withOpacity(0.05),
-                                                    width: 1,
-                                                    ))
+                                              child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall,),
                                             ),
-                                            child: Center(child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall,)),
                                           )
+                                          // Container(
+                                          //   padding:SizeConfig.padding(12, 10),
+                                          //   height: SizeConfig.h(34),
+                                          //   // width: SizeConfig.w(110),
+                                          //   // padding: SizeConfig.padding(10,12),
+                                          //   decoration: BoxDecoration(
+                                          //
+                                          //       color: Color(0xFF878787).withOpacity(0.1),
+                                          //       borderRadius: BorderRadius.circular(SizeConfig.sp(30)),
+                                          //       border: Border.fromBorderSide(BorderSide(
+                                          //           color:  Stylings.priBlack.withOpacity(0.05),
+                                          //           width: 1,
+                                          //           ))
+                                          //   ),
+                                          //   child: Center(child: Text('${(wallpaper['designs'] as List).length} wallpapers', style: Stylings.navSmall,)),
+                                          // )
                                         ],
                                       ),
                                                                     ),

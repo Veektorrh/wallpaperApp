@@ -21,6 +21,7 @@ class WallpaperCard extends StatelessWidget {
         Get.to(()=>WallpaperSetup());
       },
       child: Container(
+        constraints: BoxConstraints(maxWidth: SizeConfig.w(435.33),maxHeight: SizeConfig.h(290.71),),
           height: SizeConfig.h(290.71),
           width: SizeConfig.w(435.33),
         decoration: BoxDecoration(
@@ -63,7 +64,7 @@ class WallpaperCard extends StatelessWidget {
               child:
               Container(
                 height: SizeConfig.h(94),
-      width: SizeConfig.w(277),
+      // width: SizeConfig.w(277),
                 // decoration: BoxDecoration(
                 //     border: Border.all(color: Colors.red, width: 5)
                 // ),
@@ -72,22 +73,50 @@ class WallpaperCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(name, style: Stylings.cardHeader,),
+                      SizedBox(height: SizeConfig.h(4),),
                       Text(description, style: Stylings.cardSmall,),
-                      Container(
+                      SizedBox(height: SizeConfig.h(4),),
+                      SizedBox(
                         height: SizeConfig.h(26),
-                        width: SizeConfig.w(110),
-                        padding: SizeConfig.padding(10, 0),
-                        decoration: BoxDecoration(
-                            color: Stylings.priWhite.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(SizeConfig.sp(30)),
-                            border: Border.fromBorderSide(BorderSide(
-                                color: Stylings.priWhite,
-                                width: 0.5,
-                                style: BorderStyle.solid))
+                        // width: SizeConfig.w(110),
+                        child:
+                        TextButton(
+                            onPressed: (){},
+                          style: TextButton.styleFrom(
+                            // minimumSize: Size(SizeConfig.w(110), SizeConfig.h(26),),
+                            backgroundColor: Stylings.priWhite.withOpacity(0.2),// background color// text color
+                            // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                            shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(SizeConfig.sp(30)), // border radius
+                            side: BorderSide(
+                            color: Stylings.priWhite,// border color
+                            width: 0.5, // border width
+                            ),
+                            ),
+                            ),
+
+                            child: Text('$content wallpapers',
+                                style: Stylings.navSmall.copyWith(color: Stylings.priWhite),),
                         ),
-                        child: Text('$content wallpapers',
-                          style: Stylings.navSmall.copyWith(color: Stylings.priWhite),),
                       )
+                      // Container(
+                      //    alignment: Alignment.center,
+                      //   height: SizeConfig.h(26),
+                      //   width: SizeConfig.w(110),
+                      //   padding: SizeConfig.padding(10, 8),
+                      //   decoration: BoxDecoration(
+                      //       color: Stylings.priWhite.withOpacity(0.2),
+                      //       borderRadius: BorderRadius.circular(SizeConfig.sp(30)),
+                      //       border: Border.fromBorderSide(BorderSide(
+                      //           color: Stylings.priWhite,
+                      //           width: 0.5,
+                      //           style: BorderStyle.solid))
+                      //   ),
+                      //   child: SizedBox.expand(
+                      //     child: Text('$content wallpapers', textAlign: TextAlign.center,
+                      //       style: Stylings.navSmall.copyWith(color: Stylings.priWhite),),
+                      //   ),
+                      // )
                     ]
                 )
                 ,)
